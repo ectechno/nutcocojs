@@ -11,7 +11,7 @@ This is the main entry to the application. This script is called from the main H
 base libraries may be setup here. Once base libraries are setup, application will be instantiated.
 */
 
-require(['./suite/startup'], function (Startup) {
+require(['./global/startup'], function (Startup) {
 
     /*
     //do neccesary configurations for the thirdparty libs
@@ -19,7 +19,7 @@ require(['./suite/startup'], function (Startup) {
         interpolate: /\{\{(.+?)\}\}/g
     };
     */
-
+	
     //start the main application
     var startup = new Startup();
     startup.init();

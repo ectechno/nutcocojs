@@ -9,7 +9,7 @@ require.config({
 	}
 });
 
-define([ './global/apploader' ], function(AppLoader) {
+define([ './apploader' ], function(AppLoader) {
 	return function() {
 		this.init = function() {
 			var appLoader = new AppLoader();
