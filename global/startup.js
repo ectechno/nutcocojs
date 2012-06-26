@@ -9,7 +9,7 @@ require.config({
 	}
 });
 
-define([ 'base', 'settings', './apploader' ], function(Base, Settings, AppLoader) {
+define([ 'base', 'settings', './apploader','router' ], function(Base, Settings, AppLoader,Router) {
 	return function() {
 		this.init = function() {
 			

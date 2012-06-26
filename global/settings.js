@@ -7,9 +7,9 @@ define({
         PageStateChanged: "PAGE_STATE_CHANGED"
     },
 
-    urls: {
+    /*urls: {
         menu: "./DumSvr/menu.json.js"
-    },
+    },*/
 
     images: {
         toolbar : {
