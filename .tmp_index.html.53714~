@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>NutCocoJS Reference Architecture</title>
+	
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    
+    <link href="./themes/white/css/common.css" type="text/css" rel="stylesheet"  />
+	<script src="./jslibs/jquery/jquery-min.js" type="text/javascript" charset="utf-8" ></script>
+	<script src="./jslibs/validator/jquery.validate.min.js" type="text/javascript" charset="utf-8" ></script>
+	<script src="./jslibs/knockout/knockout-latest.js" type="text/javascript" charset="utf-8" ></script>
+	<script src="./jslibs/underscore/underscore-amd-min.js" type="text/javascript" charset="utf-8" ></script>
+	<script src="./jslibs/modernizr/modernizr.min.js" type="text/javascript" charset="utf-8" ></script>
+	<script src="./jslibs/signals/signals.min.js" type="text/javascript" charset="utf-8" ></script>
+	<script src="./jslibs/crossroads/crossroads.min.js" type="text/javascript" charset="utf-8" ></script>
+	<script src="./jslibs/hasher/hasher.min.js" type="text/javascript" charset="utf-8" ></script>
+
+</head>
+<body>
+    <div class="bodyWrapper">
+        <div class="header">
+            <table cellpadding="0" cellspacing="0">
+                <colgroup>
+                    <col width="153" />
+                    <col width="827" />
+                </colgroup>
+                <tr>
+                    <td class="logo" valign="top">
+                        <img src="./themes/white/images/logo.jpg" /><br>
+                        <span class="smallBoldText">John Smith</span><br>
+                        Unit name goes here
+                    </td>
+                    <td valign="top"><header id="appheader"></header>
+                        <div class="toolbar">
+                            <section id="toolBar"></section>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="content">
+            <section id="appcontent"></section>
+        </div>
+        <footer id="appfooter"></footer>
+    </div>
+    <script type="text/javascript" data-main="main" src="./jslibs/require/require.js"></script>
+</body>
+</html>
