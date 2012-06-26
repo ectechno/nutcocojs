@@ -9,11 +9,15 @@ require.config({
 	}
 });
 
-define([ './apploader' ], function(AppLoader) {
+define([ 'base', 'settings', './apploader' ], function(Base, Settings, AppLoader) {
 	return function() {
 		this.init = function() {
+			
+			var global = new Base.Context('NutCocoApp');
+			global.setSettings(Settings);
+			
 			var appLoader = new AppLoader();
-			appLoader.init();
+			appLoader.init(global);
 		};
 	};
 

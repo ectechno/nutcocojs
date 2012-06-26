@@ -4,12 +4,12 @@ define([ './applications/ApplicationA/application',
 
 	return function()
 	{
-		this.init = function() {
-
+		this.init = function(global) {
+			
 			var apps = new Array(new ApplicationA(), new ApplicationB()); // Array containing all the applications
 																		
 			for ( var count = 0; count < apps.length; count++) {
-				apps[count].init(); // initializes all the applications
+				apps[count].init(global); // initializes all the applications
 				
 			}
 

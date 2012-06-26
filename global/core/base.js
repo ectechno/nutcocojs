@@ -52,6 +52,10 @@
 		this.request = function() {
 
 		}
+		
+		this.setSettings = function(globalSettings){
+			this.settings=globalSettings;
+		}
 	}
 
 	Base.Panel = function(panelparent, template, style, viewmodel, nls) {
