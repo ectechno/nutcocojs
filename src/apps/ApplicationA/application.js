@@ -1,11 +1,10 @@
-define(function() {
+define(['./router'],function(Router) {
 	return function() {
 		this.init = function(global) {
-			//global.addRouter(new Router())
 			
-			//alert('global settings for menuclicked event '+global.settings.events.MenuClicked);
-			// Initialization logic for the Application goes here
-			//alert('Application A initialized');
+			var localRouter=new Router();  //create the local router
+			global.router.addRouter(localRouter); // chain the local router to the global router
+			
 			hasher.setHash('appAPath1/128');
 		};
 	};

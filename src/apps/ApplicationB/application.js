@@ -1,9 +1,10 @@
-define(function() {
+define(['./router'],function(Router) {
 	return function() {
 		this.init = function(global) {
 	
-			// Initialization logic for the Application goes here
-			//alert('Application B initialized');
+			var localRouter=new Router();  //create the local router
+			global.router.addRouter(localRouter); // chain the local router to the global router
+			
 		};
 	};
 });
