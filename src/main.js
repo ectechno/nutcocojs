@@ -20,12 +20,12 @@ require([ 'base', './settings', './router', './apploader' ], function(Base,
 		Settings, Router, AppLoader) {
 
 	var global = new Base.Context('NutCocoApp');
-	global.setSettings(Settings);
-
-	var glbRouter = new Router();
-	glbRouter.start();
+	global.setSettings(Settings); // add settings to the global object
+	global.setRouter(new Router());// add router to the global object
+	
+	global.router.start();
 
 	var appLoader = new AppLoader();
-	appLoader.init(global);
+	appLoader.init(global); // initialize the apploader and pass the global object
 
 });

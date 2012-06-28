@@ -54,7 +54,11 @@
 		}
 		
 		this.setSettings = function(globalSettings){
-			this.settings=globalSettings;
+			this.settings=globalSettings;//add settings to the global object
+		}
+		
+		this.setRouter= function(globalRouter){
+			this.router=globalRouter;//add router to the global object
 		}
 	}
 
