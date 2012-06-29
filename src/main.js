@@ -4,8 +4,7 @@
 		order : './jslibs/require/order',
 		i18n : './jslibs/require/i18n',
 
-		base : './core/base',
-		util : './core/util',
+		_core : './core/_core',
 	}
 });
 
@@ -16,15 +15,18 @@
  * Once base libraries are setup, application will be instantiated.
  */
 
-require([ 'base', './settings', './router', './apps/loader' ], function(Base,
-		Settings, Router, AppLoader) {
+require(['_core', './settings', './apps/loader'], function(Core, 
+		Settings,  AppLoader) {
 
-	var global = new Base.Context('NutCocoApp');
-	global.setSettings(Settings); // add settings to the global object
-	global.setRouter(new Router());// add router to the global object
+	var context = new Core.Context();
+	context.setSettings(Settings); // add settings to the global object
+	var globalRouter = new Core.Router();
+	context.setRouter(globalRouter);// add router to the global object
 	
 	var appLoader = new AppLoader();
-	appLoader.init(global); // initialize the apploader and pass the global object
+	appLoader.init(context); // initialize the apploader and pass the global object
 
-	global.router.init();
+	globalRouter.init();
+	
+	
 });
