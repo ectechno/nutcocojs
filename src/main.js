@@ -15,18 +15,20 @@
  * Once base libraries are setup, application will be instantiated.
  */
 
-require(['_core', './settings', './apps/loader'], function(Core, 
-		Settings,  AppLoader) {
+require(['_core', './settings', './apps/loader'], function(Core, Settings,  AppLoader) {
 
-	var context = new Core.Context();
+	//lets setup the global context 
+	var context = new Core.Context(); // create the global context object
+	context.setRouter(new Core.Router());// add router to the global object
+	context.setMediator(new Core.Mediator($('document'))); // add the global mediator
 	context.setSettings(Settings); // add settings to the global object
-	var globalRouter = new Core.Router();
-	context.setRouter(globalRouter);// add router to the global object
 	
+	//load all the applications
 	var appLoader = new AppLoader();
 	appLoader.init(context); // initialize the apploader and pass the global object
 
-	globalRouter.init();
+	//start the router
+	context.getRouter().init();
 	
-	
+	//hasher.setHash('appAPath1/128');
 });

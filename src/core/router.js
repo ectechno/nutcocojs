@@ -1,26 +1,31 @@
 ﻿define([], function() {
-
-	return function() {
-		// setup crossroads
-		var globalRouter = crossroads.create();
-
+	
+	return function(parent) {
+		var _router = crossroads.create();
+		var _parent = parent;
 		return {
 			init : function() {
-				// setup hasher
-				function parseHash(newHash, oldHash) {
-					globalRouter.parse(newHash);
-				}
-				hasher.initialized.add(parseHash);// parse initial hash
-				hasher.changed.add(parseHash);// parse hash changes
-				hasher.init(); // start listening for history change
+				if (_parent) {
+					crParentRouter = _parent.getNativeRouter();
+					crParentRouter.routed.add(_router.parse, _router);
+					crParentRouter.bypassed.add(_router.parse, _router);
+				} else if(!hasher.isActive()) {
+					function parseHash(newHash, oldHash) {
+						_router.parse(newHash);
+					}
+					hasher.initialized.add(parseHash);// parse initial hash
+					hasher.changed.add(parseHash);// parse hash changes
+					hasher.init(); // start listening for history change
+
+				};
 			},
-	
-			// Function to add local routers to the global router
-			addRouter : function(lRouter) {
-				var tempRouter = lRouter.init();
-				globalRouter.routed.add(tempRouter.parse, tempRouter);
-				globalRouter.bypassed.add(tempRouter.parse, tempRouter);
-			}
+
+			addRoute : function(pattern, handler) {
+				return _router.addRoute(pattern, handler);
+			},
+			
+			getNativeRouter : function() {return _router;},
+
 		};
 	};
 

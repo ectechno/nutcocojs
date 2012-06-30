@@ -1,11 +1,15 @@
-define(['./router'],function(Router) {
+define([ '_core'],function( Core) {
 	return function() {
 		this.init = function(global) {
 			
-			var localRouter=new Router();  //create the local router
-			global.getRouter().addRouter(localRouter); // chain the local router to the global router
+			var localRouter=new Core.Router(global.getRouter());  //create the local router
 			
-			hasher.setHash('appAPath1/128');
+			localRouter.addRoute('appAPath1/{id}', function(id) {
+				console.log("appA" + id);
+			});
+			
+			localRouter.init();
+			
 		};
 	};
 });
