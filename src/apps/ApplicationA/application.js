@@ -1,10 +1,9 @@
-define(function() {
+define([ '_core', './routeBuilder'],function( Core, RouteBuilder) {
 	return function() {
-		this.init = function(global) {
+		this.init = function(globalContext) {
 			
-			alert('global settings for menuclicked event '+global.settings.events.MenuClicked);
-			// Initialization logic for the Application goes here
-			alert('Application A initialized');
+			var localRouter = new RouteBuilder().build(globalContext.getRouter());
+			localRouter.init();
 		};
 	};
 });

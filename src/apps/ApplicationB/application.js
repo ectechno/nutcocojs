@@ -1,9 +1,10 @@
-define(function() {
+define([ '_core', './routeBuilder'],function( Core, RouteBuilder) {
 	return function() {
-		this.init = function(global) {
+		this.init = function(globalContext) {
 	
-			// Initialization logic for the Application goes here
-			alert('Application B initialized');
+			var localRouter = new RouteBuilder().build(globalContext.getRouter());
+			localRouter.init();
+			
 		};
 	};
 });
