@@ -1,10 +1,11 @@
 ﻿define([], function() {
 	
-	return function() {
+	return function(parent) {
 		
 		var _settings = null;
 		var _router = null;
 		var _mediator = null;
+		var _parent = parent || null;
 		
 		return{
 			setSettings : function(settings){_settings = settings;},
@@ -15,6 +16,8 @@
 			
 			setMediator : function(mediator){_mediator = mediator;},
 			getMediator : function(){return _mediator;},
+			
+			getParentContext : function(){return _parent;},
 		};
 
 	};

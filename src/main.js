@@ -5,6 +5,7 @@
 		i18n : './jslibs/require/i18n',
 
 		_core : './core/_core',
+		_util : './util/_util',
 	}
 });
 

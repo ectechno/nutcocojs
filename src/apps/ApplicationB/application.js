@@ -1,13 +1,8 @@
-define([ '_core'],function( Core) {
+define([ '_core', './routeBuilder'],function( Core, RouteBuilder) {
 	return function() {
-		this.init = function(global) {
+		this.init = function(globalContext) {
 	
-			var localRouter=new Core.Router(global.getRouter());  //create the local router
-			
-			localRouter.addRoute('appBPath1/{id}', function(id) {
-				console.log("appB" + id);
-			});
-			
+			var localRouter = new RouteBuilder().build(globalContext.getRouter());
 			localRouter.init();
 			
 		};
