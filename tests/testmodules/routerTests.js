@@ -2,12 +2,6 @@
  * This is  a test module, All the unit tests related to global router goes here
  */
 
-require.config({
-	paths : {
-		_core : './core/_core'
-	}
-});
-
 require(
 		[ '_core' ],
 		function() {
@@ -15,6 +9,9 @@ require(
 				setup : function() {
 					var Core = testr('_core');
 					this.testRouter = new Core.Router();
+				},
+				teardown : function() {
+					hasher.stop();
 				}
 			});
 			// Testing init method

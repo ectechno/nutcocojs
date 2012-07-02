@@ -1,10 +1,4 @@
-require.config({
-	paths : {
-		_core : './core/_core',
-	}
-});
-
-require([ './settings' ], function( Settings) {
+require([ './settings', '_core' ], function(Settings) {
 
 	module("Settings Tests",{
 		setup : function(){
