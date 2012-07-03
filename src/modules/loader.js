@@ -1,5 +1,5 @@
-define([ './ApplicationA/application',
-		'./ApplicationB/application' ], function(
+define([ './auctionsModule/module',
+		'./trainingsModule/module' ], function(
 		ApplicationA, ApplicationB) {
 	
 	var apps = new Array(new ApplicationA(), new ApplicationB()); // Array containing all the applications
