@@ -1,4 +1,6 @@
-﻿require.config({
+﻿'use strict';
+
+require.config({
 	paths : {
 		text : './jslibs/require/text',
 		order : './jslibs/require/order',
@@ -17,7 +19,6 @@
  */
 
 require(['_core', './settings', './modules/loader'], function(Core, Settings,  AppLoader) {
-
 	//lets setup the global context 
 	var context = new Core.Context(); // create the global context object
 	context.setRouter(new Core.Router());// add router to the global object
