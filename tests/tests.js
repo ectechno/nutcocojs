@@ -13,10 +13,10 @@ require.config({
 	}
 });
 
-require([ '../tests/testmodules/appLevelRoutingTests',	//A list of all the unit test module paths (relative to the base URL)
-          '../tests/testmodules/sampleTests',
-          '../tests/testmodules/settingsTests',
-          '../tests/testmodules/routerTests'
+require([ '../tests/modules/appLevelRoutingTests',	//A list of all the unit test module paths (relative to the base URL)
+          '../tests/modules/sampleTests',
+          '../tests/modules/settingsTests',
+          '../tests/modules/routerTests'
           ], function() {
 
 });
