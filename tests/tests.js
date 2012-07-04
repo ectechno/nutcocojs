@@ -15,7 +15,7 @@ require.config({
 
 require([ '../tests/testmodules/appLevelRoutingTests',	//A list of all the unit test module paths (relative to the base URL)
           '../tests/testmodules/sampleTests',
-          '../tests/testmodules/SettingsTests',
+          '../tests/testmodules/settingsTests',
           '../tests/testmodules/routerTests'
           ], function() {
 
