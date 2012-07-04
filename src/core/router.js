@@ -26,6 +26,10 @@
 				};
 			},
 			
+			routeTo : function(path) {
+				hasher.setHash(path);
+			},
+			
 			getNativeRouter : function() {return _router;}
 		};
 		

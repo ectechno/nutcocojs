@@ -1,8 +1,4 @@
-require.config({
-	paths : {
-		_core : './core/_core',
-	}
-});
+
 
 require([ '_core' ], function() {
 	module("Application Level Routing Test", {
@@ -17,6 +13,7 @@ require([ '_core' ], function() {
 		}
 	});
 
+	
 	test("Hash set before routers initialize", function() {
 		hasher.setHash('appAPath1/128');
 
@@ -28,7 +25,7 @@ require([ '_core' ], function() {
 
 		ok(spyMethod.calledWith("128"), "Router callback function called");
 	});
-
+	
 	test("Hash set after local router initialize", function() {
 
 		var spyMethod = sinon.spy();
@@ -48,6 +45,7 @@ require([ '_core' ], function() {
 		localRouter.addRoute('appAPath1/{id}', spyMethod);
 		localRouter.init();
 		this.context.getRouter().init();
+		
 		hasher.setHash('appAPath1/128');
 		
 		ok(spyMethod.calledWith("128"), "Router callback function called");
@@ -75,4 +73,5 @@ require([ '_core' ], function() {
 		ok(spyMethod2.calledWith("256"), "Router2 callback function called");
 
 	});
+	
 });

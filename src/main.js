@@ -16,7 +16,7 @@
  * Once base libraries are setup, application will be instantiated.
  */
 
-require(['_core', './settings', './apps/loader'], function(Core, Settings,  AppLoader) {
+require(['_core', './settings', './modules/loader'], function(Core, Settings,  AppLoader) {
 
 	//lets setup the global context 
 	var context = new Core.Context(); // create the global context object
@@ -31,5 +31,5 @@ require(['_core', './settings', './apps/loader'], function(Core, Settings,  AppL
 	//start the router
 	context.getRouter().init();
 	
-	//hasher.setHash('appAPath1/128');
+	
 });
