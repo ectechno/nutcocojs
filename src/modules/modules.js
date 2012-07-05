@@ -1,9 +1,9 @@
 define(function(require) {
 
-	var AuctionsModule = require('./auctionsModule/module');
-	var TrainingsModule = require('./trainingsModule/module');
+	var moduleOne = require('./moduleOne/module');
+	var moduleTwo = require('./moduleTwo/module');
 
 	// create an array containing all modules for easy handling
-	return [ new AuctionsModule(), new TrainingsModule() ];
+	return [ new moduleOne(), new moduleTwo() ];
 
 });
