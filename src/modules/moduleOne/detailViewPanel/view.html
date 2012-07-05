@@ -1,6 +1,6 @@
 <div  data-bind="visible:moduleEnabled">
     <form data-bind="submit:addItem">
-        Listview Add item: <input class="mystyle" type="text" data-bind='value:itemToAdd, valueUpdate: "afterkeydown"' />
+        DetailPanel Add item: <input class="mystyle" type="text" data-bind='value:itemToAdd, valueUpdate: "afterkeydown"' />
         <button type="submit" data-bind="enable: itemToAdd().length > 0">
             Add
         </button>

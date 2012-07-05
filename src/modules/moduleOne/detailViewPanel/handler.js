@@ -5,7 +5,7 @@ define([ '_core', './viewmodel', 'text!./view.html'],function( Core, ViewModel, 
 		return {
 			
 			activate: function(vals) {
-				var vm = new ViewModel("list : " + vals.id);
+				var vm = new ViewModel("detail : " + vals.id);
 				panel = new Core.Panel(vm, viewText);
 			},
 			

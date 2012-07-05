@@ -7,11 +7,12 @@
 define(function(require) {
 
 	// lets get all the panel handler classes in to variables
-	var ListviewPanelHandler = require('./listviewPanel/handler');
-
+	var ListViewPanelHandler = require('./listViewPanel/handler');
+	var DetailViewPanelHandler = require('./detailViewPanel/handler');
+	
 	// now return a structure containing the route path and handler instance
 	return {
-		'appAPathP/{id}' : new ListviewPanelHandler(),
-		'appAPathQ/{id}' : new ListviewPanelHandler()
+		'listview/{id}' : new ListViewPanelHandler(),
+		'detailview/{id}' : new DetailViewPanelHandler()
 	};
 });
