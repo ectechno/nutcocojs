@@ -1,23 +1,45 @@
-﻿define([], function() {
+﻿define(['./router', './mediator', './controller'], function(Router, Mediator, Controller) {
 	
-	return function(parent) {
+	return function(parentContext) {
 		
-		var _settings = null;
-		var _router = null;
-		var _mediator = null;
-		var _parent = parent || null;
+		var settings = {};
+		var router = null;
+		var mediator = null;
+		var controller = null;
+		var parent = parentContext || null;
+		
+		if(!parent) {
+			router = new Router();
+			mediator = new Mediator();
+			controller = new Controller(router);
+		} else {
+			router = parent.getRouter();
+			mediator = new Mediator(parent.getMediator());
+			_.extend(settings, parent.getSettings());
+			controller = parent.getController();
+		}
+
 		
 		return{
-			setSettings : function(settings){_settings = settings;},
-			getSettings : function(){return _settings;},
+			addSettings : function(newSettings){
+				_.extend(settings, newSettings);
+			},
+			getSettings : function(){return settings;},
 			
-			setRouter : function(router){_router = router;},
-			getRouter : function(){return _router;},
+			getController : function() {return controller;},
+			setController : function(newController) {controller = newController;},
 			
-			setMediator : function(mediator){_mediator = mediator;},
-			getMediator : function(){return _mediator;},
+			getRouter : function(){return router;},
+			setRouter : function(newRouter) {router = newRouter;},
 			
-			getParentContext : function(){return _parent;},
+			getMediator : function(){return mediator;},
+			setMediator : function(newMediator) {mediator = newMediator;},
+			
+			getParent : function(){return parent;},
+			
+			activate : function() {
+				router.init();
+			},
 		};
 
 	};

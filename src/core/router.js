@@ -1,8 +1,8 @@
 ﻿define(['_util'], function(Util) {
 	
-	return function(parent) {
+	return function() {
 		var _router = crossroads.create();
-		var _parent = parent;
+		_router.normalizeFn = crossroads.NORM_AS_OBJECT;
 		
 		return{
 			addRoute : function(pattern, handler) {
@@ -11,11 +11,7 @@
 			
 			init : function() {
 				
-				if (_parent) {
-					crParentRouter = _parent.getNativeRouter();
-					crParentRouter.routed.add(_router.parse, _router);
-					crParentRouter.bypassed.add(_router.parse, _router);
-				} else if(!hasher.isActive()) {
+				if(!hasher.isActive()) {
 					function parseHash(newHash, oldHash) {
 						_router.parse(newHash);
 					}
@@ -30,7 +26,6 @@
 				hasher.setHash(path);
 			},
 			
-			getNativeRouter : function() {return _router;}
 		};
 		
 	};
