@@ -10,7 +10,6 @@ define([ '_core', './viewmodel', 'text!./view.html'],function( Core, ViewModel, 
 			},
 			
 			deactivate: function() {
-				console.log('deactivation called');
 				if (panel) {
 					panel.dispose();
 				}
