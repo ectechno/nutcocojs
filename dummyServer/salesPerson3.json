@@ -1,7 +1,0 @@
-{ "salesPerson3" : [
-	"id" : "emp03",
-	"firstName" : "Alice",
-	"lastName" : "Allison",
-	"averageSales " : 10500
-	]
-}
