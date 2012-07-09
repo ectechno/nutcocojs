@@ -1,0 +1,7 @@
+{ "salesPerson2" : [
+	"id" : "emp02",
+	"firstName" : "Steve",
+	"lastName" : "Stevenson",
+	"averageSales " : 15000
+	]
+}
