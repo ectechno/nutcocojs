@@ -1,6 +1,6 @@
 { "salesPersons" : [
 	{ "id" : "emp01" , "firstName" : "Bob" },
 	{ "id" : "emp02" , "firstName" : "Steve" },
-	{ "id" : "emp03" , "firstName" : "Alice" },
+	{ "id" : "emp03" , "firstName" : "Alice" }
 	]
 }
