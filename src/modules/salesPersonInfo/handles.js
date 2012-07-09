@@ -12,7 +12,7 @@ define(function(require) {
 	
 	// now return a structure containing the route path and handler instance
 	return {
-		'salesPersons/' : new ListViewPanelHandler(),
-		'salesPersons/{id}' : new DetailViewPanelHandler()
+		'salespersons/' : new ListViewPanelHandler(),
+		'salespersons/{id}' : new DetailViewPanelHandler()
 	};
 });
