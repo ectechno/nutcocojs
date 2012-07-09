@@ -499,6 +499,40 @@ div.error
 }
 
 
+#salesperson-list .list-title {
+	
+}
 
+#salesperson-list ul {
+	padding:8px;
+	margin:0px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:15px;
+	color:#FFF;
+	list-style:none;
+	background:#333333;
+}
+#salesperson-list ul li
+{
+	background:#333333;
+	line-height:28px;
+	border-bottom:1px solid #000;
+}
 
+#salesperson-list ul li a
+{
+	text-decoration:none;
+	color:#FFF;
+	display:block;
+}
+#salesperson-list ul li a:hover
+{
+	background:#818181;
+}
 
+div#salesperson-list {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	width: 300px;
+}
