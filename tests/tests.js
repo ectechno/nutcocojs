@@ -7,16 +7,14 @@ require.config({
 		text : './jslibs/require/text',
 		order : './jslibs/require/order',
 		i18n : './jslibs/require/i18n',
-		
+
 		_core : './core/_core',
 		_util : './util/_util'
 	}
 });
 
-require([ '../tests/modules/appLevelRoutingTests',	//A list of all the unit test module paths (relative to the base URL)
-          '../tests/modules/sampleTests',
-          '../tests/modules/settingsTests',
-          '../tests/modules/routerTests'
-          ], function() {
 
-});
+require([ 
+          '../tests/modules/settingsTests', 
+          '../tests/modules/sampleTests', 
+], function() {}); 

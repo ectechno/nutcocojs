@@ -1,16 +1,25 @@
 ﻿define([], function() {
 	
-	return function(globalContext) {
+	return function(parentSettings) {
 		
-		var moduleInstances = new Array();
+		var isSettingsChained = true;
+		var localSettings = {};
 		
 		return {
-			load : function(modules) {
-				for ( i in modules) {
-					var ModuleClass = modules[i];
-					moduleInstances.push(new ModuleClass(globalContext)); // initializes the module
-				}
+			load : function(newSettings) {
+				_.extend(localSettings, newSettings);
 			},
+			
+			items : function () {
+				if(isSettingsChained && parentSettings) {
+					return _.extend(_.clone(parentSettings.items()), localSettings);
+				}
+				return localSettings;
+			},		
+			
+			chainSettings : function(isChained) {
+				isSettingsChained = isChained;
+			}
 		};
 		
 	};
