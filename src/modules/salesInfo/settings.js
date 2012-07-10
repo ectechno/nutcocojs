@@ -8,7 +8,9 @@ define({
     },
 
     urls: {
-        menu: "./DumSvr/menu.json.js"
+        menu: "./DumSvr/menu.json.js",
+        dumSvr: "./dummyServer/",
+        salesPersonInfo: "./dummyServer/salesPersonInfo.json"
     },
 
 });
