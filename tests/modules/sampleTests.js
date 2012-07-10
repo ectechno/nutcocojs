@@ -31,7 +31,7 @@ require([], function() {
 		//We have a method called test that returns 5
 		this.test = function() {
 			return 5;
-		}
+		};
 
 		var f = sinon.spy(this, "test"); //spy on the test method
 
