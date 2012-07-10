@@ -1,11 +1,10 @@
 define([], function() {
 
-	return function() {
+	return function(moduleContext) {
 		var self = this;
 		
 		this.init = function(){
-			//TODO: need to get the url from the settings object
-			$.getJSON("./dummyServer/salesPersonInfo.json", function (result) {
+			$.getJSON(moduleContext.getSettings().urls.salesPersonInfo, function (result) {
 				self.salesPersons(result);
             });
 		}	
@@ -14,8 +13,7 @@ define([], function() {
 		
 		this.salesPersons = ko.observableArray();
 		this.personClicked = function(person){
-			//TODO: need to user router.setRoute() method instead
-			hasher.setHash("salespersons/"+person.id);
+			moduleContext.getController().goTo("salespersons/"+person.id);
 		}
 		this.moduleEnabled = ko.observable(true);
 		

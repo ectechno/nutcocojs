@@ -9,7 +9,8 @@ define({
 
     urls: {
         menu: "./DumSvr/menu.json.js",
-        dumSvr: "./dummyServer/"
+        dumSvr: "./dummyServer/",
+        salesPersonInfo: "./dummyServer/salesPersonInfo.json"
     },
 
 });
