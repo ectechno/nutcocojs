@@ -2,41 +2,44 @@
 	
 	return function(parentContext) {
 		
-		var settings = {};
-		var router = null;
+		var settings = null;
 		var mediator = null;
 		var controller = null;
 
-		mediator = parentContext ? new Mediator(parentContext.getMediator()) : new Mediator();
-		settings = parentContext ? _.extend(settings, parentContext.getSettings()) : settings;
-		
-		router = new Router();
-		
-		
-		var _return = {
-			addSettings : function(newSettings){
-				_.extend(settings, newSettings);
+		return {
+
+			getSettings : function(){
+				if(!settings) {
+					settings = parentContext ? _.extend({}, parentContext.getSettings()) : {};
+				}
+				return settings;
 			},
-			getSettings : function(){return settings;},
+			addSettings : function(newSettings){
+				_.extend(this.getSettings(), newSettings);
+			},
 			
-			getController : function() {return controller;},
+			getController : function() {
+				if(!controller) {
+					controller = new Controller(this);
+				}
+				return controller;
+			},
 			setController : function(newController) {controller = newController;},
 			
-			getRouter : function(){return router;},
-			setRouter : function(newRouter) {router = newRouter;},
-			
-			getMediator : function(){return mediator;},
+			getMediator : function(){
+				if(!mediator) {
+					mediator = parentContext ? new Mediator(parentContext.getMediator()) : new Mediator();
+				}
+				return mediator;
+			},
 			setMediator : function(newMediator) {mediator = newMediator;},
 			
 			getParentContext : function(){return parentContext;},
 			
 			activate : function() {
-				router.init();
+				this.getController().init();
 			},
 		};
-		
-		controller = new Controller(router, _return);
 
-		return _return;
 	};
 });

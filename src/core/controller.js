@@ -1,10 +1,15 @@
-﻿define(['./router'], function(Router) {
+﻿define(['./router', './mediator'], function(Router, Mediator) {
+	
+	//static separate mediator instance to be used by all controllers
+	var controllerMediator = new Mediator();
 
-	return function(router, context) {
+	return function(context) {
 		
 		var allHandles = {};
 		var isDeactivationChained = true; //defaults to 'true'
 		var selfController = this;
+		var router = new Router();
+		
 		
 		/*
 		 * Wrapper for handles. This allows us to intercept activation calls 
@@ -19,7 +24,7 @@
 				// deactivate all active handles in current controller
 				deactivateAll();
 				//raise the event to deactivate other controllers
-				context.getMediator().notify('GLOBAL_HANDLER_DEACTIVATION', selfController);
+				controllerMediator.notify('GLOBAL_HANDLER_DEACTIVATION', selfController);
 				// activate the requested handler
 				selfWrapper.handle.activate(vals);
 			};
@@ -38,7 +43,7 @@
 		}
 		
 		//listener for deactivation calls from other controllers
-		context.getMediator().listen('GLOBAL_HANDLER_DEACTIVATION',function(controller){
+		controllerMediator.listen('GLOBAL_HANDLER_DEACTIVATION',function(controller){
 			//if event is not raised by me && my deactivation is chained
 			if(selfController !== controller && isDeactivationChained) {
 				deactivateAll();
@@ -58,6 +63,14 @@
 			
 			chainDeactivation : function(isChained) {
 				isDeactivationChained = isChained;
+			},
+			
+			init : function() {
+				router.init();
+			},
+			
+			goTo : function(path){
+				router.routeTo(path);
 			}
 
 		};

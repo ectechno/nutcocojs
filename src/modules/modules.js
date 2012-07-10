@@ -1,9 +1,6 @@
 define(function(require) {
 
-	var moduleOne = require('./moduleOne/module');
-	var moduleTwo = require('./moduleTwo/module');
-
-	// create an array containing all modules for easy handling
-	return [ new moduleOne(), new moduleTwo() ];
+	// create an array containing all modules classes that needs to be initiated
+	return [ require('./moduleOne/module'), require('./moduleTwo/module') ];
 
 });
