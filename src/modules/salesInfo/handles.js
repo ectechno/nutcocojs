@@ -6,13 +6,9 @@
  */
 define(function(require) {
 
-	// lets get all the panel handler classes in to variables
-	var TreeViewPanelHandler = require('./compositePanel/treeViewPanel/handler');
-	var ChartViewPanelHandler = require('./compositePanel/chartViewPanel/handler');
-	
 	// now return a structure containing the route path and handler instance
 	return {
-		'salesinfo/' : new TreeViewPanelHandler(),
-		'salesinfo/{id}' : new ChartViewPanelHandler()
+		'salesinfo/' : require('./compositePanel/treeViewPanel/handler'),
+		'salesinfo/{id}' : require('./compositePanel/chartViewPanel/handler')
 	};
 });
