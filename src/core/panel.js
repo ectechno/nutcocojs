@@ -24,10 +24,6 @@
 			dispose: function() {
 				$('#' + viewId).remove();
 			},
-			
-			getElementId : function(){
-				return viewId;
-			}
 		};
 
 	};

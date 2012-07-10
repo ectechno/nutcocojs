@@ -19,7 +19,7 @@ require.config({
 require(['_core', './settings', './modules/modules'], function(Core, settings,  modules) {
 	//lets setup the global context 
 	var globalContext = new Core.Context(); // create the global context object
-	globalContext.getSettings().load(settings); // add settings to the global object
+	globalContext.addSettings(settings); // add settings to the global object
 	
 	//load all the modules
 	var moduleLoader = new Core.Loader(globalContext);

@@ -2,16 +2,21 @@
 	
 	return function(parentContext) {
 		
-		var settings = parentContext ? new Core.Settings(parentContext.getSettings()) : new Core.Settings();
-		var mediator = parentContext ? new Mediator(parentContext.getMediator()) : new Mediator();
-		var controller = null; // lets do lazy initialization, because controller needs its context as a reference
+		var settings = null;
+		var mediator = null;
+		var controller = null;
 
 		return {
 
 			getSettings : function(){
+				if(!settings) {
+					settings = parentContext ? _.extend({}, parentContext.getSettings()) : {};
+				}
 				return settings;
 			},
-			
+			addSettings : function(newSettings){
+				_.extend(this.getSettings(), newSettings);
+			},
 			
 			getController : function() {
 				if(!controller) {
@@ -23,7 +28,7 @@
 			
 			getMediator : function(){
 				if(!mediator) {
-					
+					mediator = parentContext ? new Mediator(parentContext.getMediator()) : new Mediator();
 				}
 				return mediator;
 			},
