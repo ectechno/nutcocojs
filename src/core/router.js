@@ -1,32 +1,31 @@
-﻿define(['_util'], function(Util) {
-	
-	return function() {
-		var _router = crossroads.create();
-		_router.normalizeFn = crossroads.NORM_AS_OBJECT;
-		
-		return{
-			addRoute : function(pattern, handler) {
-				return _router.addRoute(pattern, handler);
-			},
-			
-			init : function() {
-				
-				if(!hasher.isActive()) {
-					function parseHash(newHash, oldHash) {
-						_router.parse(newHash);
-					}
-					hasher.initialized.add(parseHash);// parse initial hash
-					hasher.changed.add(parseHash);// parse hash changes
-					hasher.init(); // start listening for history change
+﻿define([ '_util' ], function(Util) {
 
-				};
+	return function() {
+		var router = crossroads.create();
+		router.normalizeFn = crossroads.NORM_AS_OBJECT;
+
+		return {
+			addRoute : function(pattern, handler) {
+				router.addRoute(pattern, handler);
 			},
-			
+
+			init : function() {
+
+				function parseHash(newHash, oldHash) {
+					router.parse(newHash);
+				}
+				hasher.initialized.add(parseHash);// parse initial hash
+				hasher.changed.add(parseHash);// parse hash changes
+				if (!hasher.isActive()) {
+					hasher.init(); // start listening for history change
+				}
+			},
+
 			routeTo : function(path) {
 				hasher.setHash(path);
 			},
-			
+
 		};
-		
+
 	};
 });

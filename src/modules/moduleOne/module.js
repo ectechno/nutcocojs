@@ -6,6 +6,9 @@ define([ '_core', './handles', './settings'],function( Core, handles, settings) 
 			var moduleContext = new Core.Context(globalContext);
 			moduleContext.addSettings(settings); // add settings to the global object
 			moduleContext.getController().addHandles( handles);
+			
+			
+			moduleContext.activate();
 		};
 	};
 });
