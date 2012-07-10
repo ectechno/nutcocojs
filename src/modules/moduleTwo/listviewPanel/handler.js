@@ -1,10 +1,11 @@
 define([ '_core', './viewmodel', 'text!./view.html'],function( Core, ViewModel, viewText) {
 	return function(moduleContext) {
+
 		var panel = null;
 		return {
 			
 			activate: function(vals) {
-				var vm = new ViewModel("detail : " + vals.id);
+				var vm = new ViewModel("list : " + vals.id);
 				panel = new Core.Panel(vm, viewText);
 			},
 			

@@ -1,34 +1,64 @@
-﻿define([], function() {
+﻿define(['./router'], function(Router) {
 
-	return function(router) {
+	return function(router, context) {
 		
 		var allHandles = {};
-
-		function wrapper(handle) {
-			var self = this;
-			self.handle = handle;
+		var isDeactivationChained = true; //defaults to 'true'
+		var selfController = this;
+		
+		/*
+		 * Wrapper for handles. This allows us to intercept activation calls 
+		 * so that we are able to execute custom logic such as deactivation
+		 * of other handles.
+		 */
+		function Wrapper(handle) {
+			var selfWrapper = this;
+			selfWrapper.handle = handle;
 
 			this.activate = function(vals) {
-				deactivateAll();// deactivate all active panels
-				self.handle.activate(vals);// activate the requested handler
+				// deactivate all active handles in current controller
+				deactivateAll();
+				//raise the event to deactivate other controllers
+				context.getMediator().notify('GLOBAL_HANDLER_DEACTIVATION', selfController);
+				// activate the requested handler
+				selfWrapper.handle.activate(vals);
+			};
+			
+			this.deactivate = function(){
+				selfWrapper.handle.deactivate();
 			};
 
 		}
 
 		function deactivateAll() {
+			//deactivate all local handles of this controller
 			for (path in allHandles) {
 				allHandles[path].deactivate();
 			}
 		}
+		
+		//listener for deactivation calls from other controllers
+		context.getMediator().listen('GLOBAL_HANDLER_DEACTIVATION',function(controller){
+			//if event is not raised by me && my deactivation is chained
+			if(selfController !== controller && isDeactivationChained) {
+				deactivateAll();
+			}
+		});
 
 		return {
 			addHandles : function(handles) {
 				for (path in handles) {
-					var route = router.addRoute(path);
-					route.matched.add(new wrapper(handles[path]).activate);
+					var HandlerClass = handles[path];
+					var handlerObj = new Wrapper(new HandlerClass(context));
+					router.addRoute(path, handlerObj.activate);
+					//lets keep a reference of all handles so that it is possible to deactivate
+					allHandles[path] = handlerObj;
 				}
-				_.extend(allHandles, handles);
 			},
+			
+			chainDeactivation : function(isChained) {
+				isDeactivationChained = isChained;
+			}
 
 		};
 

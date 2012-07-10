@@ -1,18 +1,14 @@
-define([ '_core', './routeBuilder', './settings'],function( Core, RouteBuilder, Settings) {
+define([ '_core', './handles', './settings'],function( Core, handles, settings) {
 	return function() {
 		this.init = function(globalContext) {
-	
+			
 			//setup a local context for the application
-			var appContext = new Core.Context(globalContext);
-			appContext.addSettings(Settings); // add settings to the global object
+			var moduleContext = new Core.Context(globalContext);
+			moduleContext.addSettings(settings); // add settings to the global object
+			moduleContext.getController().addHandles( handles);
+			//moduleContext.getController().chainDeactivation(false);
 			
-			//initiate the application controller
-			//new Controller().configure(appContext.getRouter());
-			
-			//new Controller().configure(new Core.Router(globalContext.getRouter()));
-			//appContext.getRouter().routeTo('appBPathQ/878');
-
-			
+			moduleContext.activate();
 		};
 	};
 });

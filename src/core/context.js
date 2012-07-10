@@ -6,21 +6,14 @@
 		var router = null;
 		var mediator = null;
 		var controller = null;
-		var parent = parentContext || null;
-		
-		if(!parent) {
-			router = new Router();
-			mediator = new Mediator();
-			controller = new Controller(router);
-		} else {
-			router = parent.getRouter();
-			mediator = new Mediator(parent.getMediator());
-			_.extend(settings, parent.getSettings());
-			controller = parent.getController();
-		}
 
+		mediator = parentContext ? new Mediator(parentContext.getMediator()) : new Mediator();
+		settings = parentContext ? _.extend(settings, parentContext.getSettings()) : settings;
 		
-		return{
+		router = new Router();
+		
+		
+		var _return = {
 			addSettings : function(newSettings){
 				_.extend(settings, newSettings);
 			},
@@ -35,12 +28,15 @@
 			getMediator : function(){return mediator;},
 			setMediator : function(newMediator) {mediator = newMediator;},
 			
-			getParent : function(){return parent;},
+			getParentContext : function(){return parentContext;},
 			
 			activate : function() {
 				router.init();
 			},
 		};
+		
+		controller = new Controller(router, _return);
 
+		return _return;
 	};
 });
