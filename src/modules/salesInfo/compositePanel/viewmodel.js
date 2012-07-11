@@ -8,6 +8,12 @@ define([], function() {
 				self.salesInfo(result);
             });
 		}	
+		this.selectedYear = ko.observable();
+		this.selectedDept = ko.observable();
+		this.selectedData = ko.observableArray();
+		this.totalSales = ko.computed(function(){
+			return _.reduce(self.selectedData().values, function(memo, item){ return memo + item.sales; }, 0);
+		});
 		
 		this.salesInfo=ko.observableArray();
 		this.moduleEnabled = ko.observable(true);
@@ -23,7 +29,11 @@ define([], function() {
 		}
 		
 		this.yearClicked= function(years,department,data){
-			console.log(years + ' ' + department+' '+ data.values);
+			this.selectedYear(years);
+			this.selectedDept(department);
+			this.selectedData(data);
+			console.log(data.values);
+
 		}
 		
 		
