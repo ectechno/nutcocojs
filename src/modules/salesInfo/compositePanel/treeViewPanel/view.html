@@ -4,7 +4,7 @@
 			<li class="department"><a href="#"
 				data-bind="text: name"></a>
 				<ul id="salesDept" data-bind="foreach: years">
-				<li class="years"> <a href="#" data-bind="text: year, click:$root.yearClicked"></a></li>
+				<li class="years"> <a href="#" data-bind="text: year, click:function(data, event) { $root.yearClicked(year,$parent.name) }"></a></li>
 				</ul>
 				</li>
 		</ul>

@@ -23,7 +23,7 @@ define([], function() {
 		}
 		
 		this.yearClicked= function(years,department){
-			console.log(years.values);
+			console.log(years + ' ' + department);
 		}
 		
 		
