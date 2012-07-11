@@ -2,6 +2,10 @@ define([], function() {
 
 	return function(moduleContext) {
 		var self = this;
+		this.year=ko.observable();
+		this.deptName=ko.observable();
+		this.month=ko.observable("Test");
+		this.sales=ko.observable("TestSales");
 		
 		this.init = function(){
 			$.getJSON(moduleContext.getSettings().items().urls.departments, function (result) {
@@ -24,8 +28,14 @@ define([], function() {
 		
 		this.yearClicked= function(years,department,data){
 			console.log(years + ' ' + department+' '+ data.values);
+			self.setTableValues(years,department,data);
 		}
 		
+		//Function to set the table values
+		this.setTableValues=function(year,department,data){
+			self.year(year);
+			self.deptName(department);
+		}
 		
 	};
 });
