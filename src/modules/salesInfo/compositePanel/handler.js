@@ -5,7 +5,7 @@ define([ '_core', './viewmodel', 'text!./view.html', 'text!./chartViewPanel/view
 		return {
 			
 			activate: function(vals) {
-				var vm = new ViewModel(vals.id);
+				var vm = new ViewModel(moduleContext);
 				
 				//A workaround to get the shared viewmodel working... Not sure if this is the best way
 				//var parent = $(parentViewText);

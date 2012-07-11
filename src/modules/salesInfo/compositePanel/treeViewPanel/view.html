@@ -1,3 +1,12 @@
 <div  data-bind="visible:moduleEnabled">
-tree View
+<div id="treeView">
+		<ul id="salesInfo" data-bind="foreach:{data : salesInfo ,afterRender: drawTree }">
+			<li class="department"><a href="#"
+				data-bind="text: name"></a>
+				<ul id="salesDept" data-bind="foreach: years">
+				<li class="years"> <a href="#" data-bind="text: year, click:$root.yearClicked"></a></li>
+				</ul>
+				</li>
+		</ul>
+	</div>
 </div>
