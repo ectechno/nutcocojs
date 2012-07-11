@@ -22,8 +22,8 @@ define([], function() {
 	        });
 		}
 		
-		this.yearClicked= function(years,department){
-			console.log(years + ' ' + department);
+		this.yearClicked= function(years,department,data){
+			console.log(years + ' ' + department+' '+ data.values);
 		}
 		
 		
