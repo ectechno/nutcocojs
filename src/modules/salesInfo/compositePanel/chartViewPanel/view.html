@@ -11,7 +11,7 @@
 
 			<thead>
 				<tr>
-					<th scope="col" id="tableHeader">Profits of the year <strong data-bind="text: year"></strong></th>
+					<th scope="col" id="tableHeader">Profits of the year <strong data-bind="text: selectedYear"></strong></th>
 				</tr>
 			</thead>
 
@@ -19,16 +19,16 @@
 
 			<tfoot>
 				<tr>
-					<td><p data-bind="text: deptName"></p></td>
+					<td><p data-bind="text: selectedDept"></p></td>
 				</tr>
 			</tfoot>
 
 			<!-- Table body -->
 
-			<tbody>
+			<tbody id="sales-list" data-bind="foreach:selectedData">
 				<tr>
-					<td><p data-bind="text: month"></p></td>
-					<td><p data-bind="text: sales"></p></td>
+					<td data-bind="text: month"></td>
+					<td data-bind="text: sales"></td>
 				</tr>
 			</tbody>
 
