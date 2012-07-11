@@ -10,7 +10,7 @@ define({
     urls: {
         menu: "./DumSvr/menu.json.js",
         dumSvr: "./dummyServer/",
-        salesPersonInfo: "./dummyServer/salesPersonInfo.json"
+        departments: "./dummyServer/departments.json"
     },
 
 });
