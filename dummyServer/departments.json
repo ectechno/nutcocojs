@@ -1,29 +1,228 @@
 [
-{
-	"id" : "0",
-	"name" : "Human Resources",
-	"years" : [
-		{ "year" : "2012", "values" : [250000,350000,150000,220000,450000,180000] },
-		{ "year" : "2011", "values" : [200000,350000,150000,220000,450000,180000] },
-		{ "year" : "2010", "values" : [250000,350000,150000,220000,450000,180000] }
-	]
-},
-{
-	"id" : "1",
-	"name" : "Marketing",
-	"years" : [
-		{ "year" : "2012", "values" : [250000,350000,150000,220000,450000,180000] },
-		{ "year" : "2011", "values" : [250000,650000,150000,220000,450000,180000] },
-		{ "year" : "2010", "values" : [250000,850000,150000,220000,450000,180000]  }
-	]
-},
-{
-	"id" : "2",
-	"name" : "Maintenance",
-	"years" : [
-		{ "year" : "2012", "values" : [250200,350800,159000,224000,450000,180000] },
-		{ "year" : "2011", "values" : [250000,350000,150000,220004,450000,180000] },
-		{ "year" : "2010", "values" : [250000,350000,150000,220000,450000,180000]  }
-	]
-}
+	{
+		"id": "0",
+		"name": "Human Resources",
+		"years": [
+			{
+				"year": "2012",
+				"values": [
+					{
+						"month": "Jan",
+						"sales": 250000
+					}, {
+						"month": "Feb",
+						"sales": 350000
+					}, {
+						"month": "Mar",
+						"sales": 150000
+					}, {
+						"month": "Apr",
+						"sales": 220000
+					}, {
+						"month": "May",
+						"sales": 450000
+					}, {
+						"month": "Jun",
+						"sales": 450000
+					}
+				]
+			}, {
+				"year": "2011",
+				"values": [
+					{
+						"month": "Jan",
+						"sales": 250000
+					}, {
+						"month": "Feb",
+						"sales": 350000
+					}, {
+						"month": "Mar",
+						"sales": 150000
+					}, {
+						"month": "Apr",
+						"sales": 220000
+					}, {
+						"month": "May",
+						"sales": 450000
+					}, {
+						"month": "Jun",
+						"sales": 450000
+					}
+				]
+			}, {
+				"year": "2010",
+				"values": [
+					{
+						"month": "Jan",
+						"sales": 250000
+					}, {
+						"month": "Feb",
+						"sales": 350000
+					}, {
+						"month": "Mar",
+						"sales": 150000
+					}, {
+						"month": "Apr",
+						"sales": 220000
+					}, {
+						"month": "May",
+						"sales": 450000
+					}, {
+						"month": "Jun",
+						"sales": 450000
+					}
+				]
+			}
+		]
+	}, {
+		"id": "1",
+		"name": "Marketing",
+		"years": [
+			{
+				"year": "2012",
+				"values": [
+					{
+						"month": "Jan",
+						"sales": 250000
+					}, {
+						"month": "Feb",
+						"sales": 350000
+					}, {
+						"month": "Mar",
+						"sales": 150000
+					}, {
+						"month": "Apr",
+						"sales": 220000
+					}, {
+						"month": "May",
+						"sales": 450000
+					}, {
+						"month": "Jun",
+						"sales": 450000
+					}
+				]
+			}, {
+				"year": "2011",
+				"values": [
+					{
+						"month": "Jan",
+						"sales": 250000
+					}, {
+						"month": "Feb",
+						"sales": 350000
+					}, {
+						"month": "Mar",
+						"sales": 150000
+					}, {
+						"month": "Apr",
+						"sales": 220000
+					}, {
+						"month": "May",
+						"sales": 450000
+					}, {
+						"month": "Jun",
+						"sales": 450000
+					}
+				]
+			}, {
+				"year": "2010",
+				"values": [
+					{
+						"month": "Jan",
+						"sales": 250000
+					}, {
+						"month": "Feb",
+						"sales": 350000
+					}, {
+						"month": "Mar",
+						"sales": 150000
+					}, {
+						"month": "Apr",
+						"sales": 220000
+					}, {
+						"month": "May",
+						"sales": 450000
+					}, {
+						"month": "Jun",
+						"sales": 450000
+					}
+				]
+			}
+		]
+	}, {
+		"id": "2",
+		"name": "Maintenance",
+		"years": [
+			{
+				"year": "2012",
+				"values": [
+					{
+						"month": "Jan",
+						"sales": 250000
+					}, {
+						"month": "Feb",
+						"sales": 350000
+					}, {
+						"month": "Mar",
+						"sales": 150000
+					}, {
+						"month": "Apr",
+						"sales": 220000
+					}, {
+						"month": "May",
+						"sales": 450000
+					}, {
+						"month": "Jun",
+						"sales": 450000
+					}
+				]
+			}, {
+				"year": "2011",
+				"values": [
+					{
+						"month": "Jan",
+						"sales": 250000
+					}, {
+						"month": "Feb",
+						"sales": 350000
+					}, {
+						"month": "Mar",
+						"sales": 150000
+					}, {
+						"month": "Apr",
+						"sales": 220000
+					}, {
+						"month": "May",
+						"sales": 450000
+					}, {
+						"month": "Jun",
+						"sales": 450000
+					}
+				]
+			}, {
+				"year": "2010",
+				"values": [
+					{
+						"month": "Jan",
+						"sales": 250000
+					}, {
+						"month": "Feb",
+						"sales": 350000
+					}, {
+						"month": "Mar",
+						"sales": 150000
+					}, {
+						"month": "Apr",
+						"sales": 220000
+					}, {
+						"month": "May",
+						"sales": 450000
+					}, {
+						"month": "Jun",
+						"sales": 450000
+					}
+				]
+			}
+		]
+	}
 ]
