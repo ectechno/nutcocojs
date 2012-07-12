@@ -1,31 +1,36 @@
-<div>
-	<div id="chart">
-		<div id="chart-placeholder" style="width:600px;height:300px;" data-bind="flotChart: chartData(),visible : selectedYear "></div>
+<div class="salesInfo-div">
+	<div id="chart-div" >
+		<div id="chart-placeholder" data-bind="flotChart: chartData()"></div>
 	</div>
-	<div id="table">
+	<div id="table-div" data-bind="visible:tableEnabled">
 		<!-- Table markup-->
 
-		<table id="...">
+		<table id="table-salesinfo">
 
 			<!-- Table header -->
 
 			<thead>
 				<tr>
-					<th scope="col" id="tableHeader"><h3 data-bind = "visible : selectedYear">Profits for the year <strong data-bind="text: selectedYear"></strong></h3></th>
+					<th scope="row" id="table-header" colspan="2"><strong data-bind="text: selectedDept"></strong><strong> Department</strong></th>
+				</tr>
+				<tr>
+					<th scope="row" id="table-header" colspan="2">Sales for the Year <strong data-bind="text: selectedYear"></strong></th>
+				</tr>
+				<tr>
+					<th scope="col">Month</th>
+					<th scope="col">Sales</th>
 				</tr>
 			</thead>
 
 			<!-- Table footer -->
 
 			<tfoot>
-				<tr>
-					<td><p data-bind="text: selectedDept"></p></td>
-				</tr>
+				
 			</tfoot>
 
 			<!-- Table body -->
 
-			<tbody id="sales-list" data-bind="foreach:selectedData">
+			<tbody data-bind="foreach:selectedData">
 				<tr>
 					<td data-bind="text: month"></td>
 					<td data-bind="text: sales"></td>

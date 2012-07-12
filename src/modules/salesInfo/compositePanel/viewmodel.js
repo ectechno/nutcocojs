@@ -63,6 +63,7 @@ define([], function() {
 		
 		this.salesInfo=ko.observableArray();
 		this.moduleEnabled = ko.observable(true);
+		this.tableEnabled=ko.observable(false);
 		this.init();
 		
 		self.drawTree = function(){
@@ -116,6 +117,7 @@ define([], function() {
 		
 		
 		this.yearClicked= function(years,department,data){
+			self.tableEnabled(true);
 			self.selectedYear(years);
 			self.selectedDept(department);
 			self.selectedData(data.values);

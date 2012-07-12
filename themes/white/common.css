@@ -561,7 +561,74 @@ div#salesperson-list {
 	font-size: medium;
 	color:#CCCCCC;
 }
+/*salesinfo panel*/
+.salesInfo-div {
+	width: 980px;
+	margin: 0px auto 0px auto;
+}
 
-#chart-placeholder{
-	height:200px;
+/* salesinfo table view*/
+#table-div {
+	width: auto;
+	height: auto;
+	float: right;
+}
+#table-salesinfo {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	margin-top: 45px;
+	width: 400px;
+	text-align: center;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+#table-salesinfo th {
+	padding: 8px;
+	font-weight: normal;
+	font-size: 13px;
+	color: #039;
+	background: #b9c9fe;
+}
+#table-salesinfo th:first-child
+{
+	-moz-border-radius: 6px 0 0 0;
+	-webkit-border-radius: 6px 0 0 0;
+	border-radius: 6px 0 0 0;
+}
+#table-salesinfo th:last-child
+{
+	-moz-border-radius: 0 6px 0 0;
+	-webkit-border-radius: 0 6px 0 0;
+	border-radius: 0 6px 0 0;
+}
+#table-salesinfo th:only-child
+{
+	-moz-border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+}
+#table-salesinfo td {
+	padding: 8px;
+	background: #e8edff;
+	border-top: 1px solid #fff;
+	color: #669;
+}
+#table-salesinfo tr:hover td {
+	background: #d0dafd;
+}
+
+/*Salesinfo chart view*/
+#chart-div {
+	width: 700px;
+	float: right;
+}
+
+#chart-placeholder {
+	height: 200px;
+}
+/*salesinfo tree view*/
+#treeView {
+	margin-left: 0px auto;
+	width: auto;
+	float: left;
 }
