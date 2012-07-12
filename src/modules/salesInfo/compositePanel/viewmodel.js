@@ -4,30 +4,40 @@ define([], function() {
 		var self = this;
 		
 		this.plot = null;
-		/*
-		ko.bindingHandlers.flotChart = {
-			init : function(element, valueAccessor, allBindingsAccessor, viewModel){		
-				viewModel.plot = $.plot($(element), [], {
-					lines : {
-						show : true
-					},
-					points : {
-						show : true
-					}});
-			},
-			update : function(element, valueAccessor, allBindingsAccessor, viewModel){
-				//viewModel.plot.setData([valueAccessor().dataItems]);
-				//viewModel.plot.draw();
-				viewModel.drawChart();
-				//var a = valueAccessor();
-				//console.log(a);
-			}
-		};
-		*/
+		
 		this.init = function(){
 			$.getJSON(moduleContext.getSettings().items().urls.departments, function (result) {
 				self.salesInfo(result);
             });
+		
+		ko.bindingHandlers.flotChart = {
+				init : function(element, valueAccessor){		
+					
+				},
+				    update: function(element, valueAccessor) {
+				    	 	 var options = {
+				 				lines : {
+				 					show : true
+				 				},
+				 				points : {
+				 					show : true
+				 				},
+				 				xaxis : {
+				 					ticks : valueAccessor().tickLabels
+				 				}
+				 			};
+				    	 
+				    	 
+				    	 var data = [ {
+								"label" : self.selectedDept() + " -  " + self.selectedYear(),
+								"data" : valueAccessor().dataItems
+							} ];
+				    	 
+				    	 $.plot($(element), data, options );
+				    } 
+		};
+		
+		
 		}	
 		this.selectedYear = ko.observable();
 		this.selectedDept = ko.observable();
@@ -41,6 +51,7 @@ define([], function() {
 					key) {
 				return [ key, item.sales ];
 			});
+			
 			return {
 				"tickLabels" : tickLabels,
 				"dataItems" : dataItems
@@ -55,7 +66,7 @@ define([], function() {
 		this.init();
 		
 		self.drawTree = function(){
-			// alert('drawing tree');
+			
 			$("#treeView").jstree({
 	            "themes": {
 	                "theme": "apple"
@@ -64,7 +75,7 @@ define([], function() {
 	        });
 		}
 		
-		self.drawChart = function() {
+		/*self.drawChart = function() {
 			var tickLabels = _.map(self.selectedData(), function(item,
 					key) {
 				return [ key, item.month ];
@@ -101,14 +112,13 @@ define([], function() {
 				self.plot = $.plot(placeholder, data, options);
 			}
 			
-		}
+		}*/
 		
 		
 		this.yearClicked= function(years,department,data){
 			self.selectedYear(years);
 			self.selectedDept(department);
 			self.selectedData(data.values);
-			self.drawChart();
 		}
 		
 		

@@ -1,6 +1,6 @@
 <div>
 	<div id="chart">
-		<div id="chart-placeholder" data-bind="flotChart: chartData()"></div>
+		<div id="chart-placeholder" style="width:600px;height:300px;" data-bind="flotChart: chartData(),visible : selectedYear "></div>
 	</div>
 	<div id="table">
 		<!-- Table markup-->
@@ -11,7 +11,7 @@
 
 			<thead>
 				<tr>
-					<th scope="col" id="tableHeader"><h3 data-bind = "visible : selectedYear()">Profits for the year <strong data-bind="text: selectedYear"></strong></h3></th>
+					<th scope="col" id="tableHeader"><h3 data-bind = "visible : selectedYear">Profits for the year <strong data-bind="text: selectedYear"></strong></h3></th>
 				</tr>
 			</thead>
 
