@@ -561,3 +561,7 @@ div#salesperson-list {
 	font-size: medium;
 	color:#CCCCCC;
 }
+
+#chart-placeholder{
+	height:200px;
+}
