@@ -562,16 +562,26 @@ div#salesperson-list {
 	color:#CCCCCC;
 }
 /*salesinfo panel*/
-.salesInfo-div {
-	width: 980px;
+#panel
+{
+	width: 900px;
 	margin: 0px auto 0px auto;
+}
+#salesInfo-div
+{
+	width: 600px;
+	float:right;
+}
+#treeView {
+	width: 200px;
+	float: left;
 }
 
 /* salesinfo table view*/
 #table-div {
-	width: auto;
+	width:auto;
 	height: auto;
-	float: right;
+	float:right;
 }
 #table-salesinfo {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
@@ -619,16 +629,10 @@ div#salesperson-list {
 
 /*Salesinfo chart view*/
 #chart-div {
-	width: 700px;
-	float: right;
+	width: inherit;
+	height:auto;
 }
 
 #chart-placeholder {
 	height: 200px;
-}
-/*salesinfo tree view*/
-#treeView {
-	margin-left: 0px auto;
-	width: auto;
-	float: left;
 }
