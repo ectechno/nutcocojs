@@ -1,20 +1,20 @@
-define([ '_core', './viewmodel', 'text!./view.html'],function( Core, ViewModel, viewText) {
+define(['_core', './viewmodel', './component'], function(Core, ViewModel, Component) {
 	return function(moduleContext) {
 
-		var panel = null;
+		var component = null;
 		return {
-			
-			activate: function(vals) {
+
+			activate : function(vals) {
 				var vm = new ViewModel(vals.id);
-				panel = new Core.Panel(vm, viewText);
+				component = new Component(vm);
 			},
-			
-			deactivate: function() {
-				if (panel) {
-					panel.dispose();
+
+			deactivate : function() {
+				if (component) {
+					component.dispose();
 				}
 			}
 		};
-		
+
 	};
-});
+}); 
