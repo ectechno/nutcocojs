@@ -29,7 +29,7 @@ define([ './../settings' ], function(Settings) {
 				self.lastName(data.lastName);
 				self.averageSales(data.averageSales);
 			});
-		}
+		};
 
 		this.initialize(id);
 
