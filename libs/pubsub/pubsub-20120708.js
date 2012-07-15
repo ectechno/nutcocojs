@@ -16,6 +16,7 @@
 			funcType = Function;//help minification
 
 		return {
+
 			/*
 			 * @public
 			 *
@@ -30,6 +31,7 @@
 			 * PubSub.publish("/some/channel", "a", "b", {total: 10, min: 1, max: 3});
 			 */
 			publish: function(){
+				var sync = true;
 				var args = arguments,//help minification
 					subs = channels[args[0] /* channel */];
 
@@ -38,19 +40,23 @@
 						params = (args.length > 1) ? Array.prototype.splice.call(args, 1) : [],
 						x = 0;
 
-					//run the callbacks asynchronously, do not block the main execution process
-					//setTimeout(
-					//	function(){
-							//executes callbacks in the order in which they were registered
-							for(; x < len; x++){
-								subs[x].apply(context, params);
-							}
+					var publishFn = function(){
+						//executes callbacks in the order in which they were registered
+						for(; x < len; x++){
+							subs[x].apply(context, params);
+						}
 
-							//clear references to allow garbage collection
-							subs = context = params = null;
-					//	},
-					//	0
-					//);
+						//clear references to allow garbage collection
+						subs = context = params = null;
+					};
+					
+					//run the callbacks asynchronously, do not block the main execution process
+					if (sync) {
+						publishFn();
+					} else {
+						setTimeout(publishFn, 0);
+					}
+					
 				}
 			},
 

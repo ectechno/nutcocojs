@@ -1,7 +1,7 @@
 require([ './settings', '_core' ], function(Settings) {
 
 	var Core = null;
-	module("Settings Tests",{
+	module("Core.Settings Tests",{
 		setup : function(){
 			Core = testr('_core');
 		}
