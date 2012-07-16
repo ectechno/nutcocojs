@@ -15,6 +15,7 @@ require.config({
 
 
 require([ 
-          '../tests/modules/settingsTests', 
-          '../tests/modules/sampleTests', 
+          '../tests/core/settingsTests', 
+          '../tests/core/loaderTests',
+          '../tests/core/sampleTests', 
 ], function() {}); 

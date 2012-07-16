@@ -1,4 +1,4 @@
-﻿define(['./router', './mediator'], function(Router, Mediator) {
+﻿define(['_util', './router', './mediator'], function(Util, Router, Mediator) {
 	
 	//static separate mediator instance to be used by all controllers
 	var controllerMediator = new Mediator();
@@ -38,7 +38,14 @@
 		function deactivateAll() {
 			//deactivate all local handles of this controller
 			for (path in allHandles) {
-				allHandles[path].deactivate();
+				try{
+					allHandles[path].deactivate();
+				} catch(err) {
+					//error in deactivating one handle shouldn't
+					//break the deactivation process
+					Util.Logger.error("deactivation failed for Handle '" + path + "' : " + err);
+				}
+				
 			}
 		}
 		
@@ -51,7 +58,7 @@
 		});
 
 		return {
-			addHandles : function(handles) {
+			addRoutes : function(handles) {
 				for (path in handles) {
 					var HandlerClass = handles[path];
 					var handlerObj = new Wrapper(new HandlerClass(context));

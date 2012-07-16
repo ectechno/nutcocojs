@@ -1,12 +1,10 @@
-define(['_core', './viewmodel', './component'], function(Core, ViewModel,Component) {
+define(['./component'], function(Component) {
 	return function(moduleContext) {
 
 		var component = null;
 		return {
-
 			activate : function(vals) {
-				var vm = new ViewModel(moduleContext);
-				component = new Component(vm);
+				component = new Component(moduleContext);
 			},
 
 			deactivate : function() {

@@ -8,7 +8,6 @@ define(function(require) {
 	
 	// now return a structure containing the route path and handler classes
 	return {
-		'listviewB/{id}' :  require('./listviewPanel/handler'),
-		'detailviewB/{id}' :  require('./detailviewPanel/handler')
+		'departments' :  require('./listviewPanel/handler'),
 	};
 });

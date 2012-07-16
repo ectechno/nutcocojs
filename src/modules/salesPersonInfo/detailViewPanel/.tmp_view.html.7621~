@@ -1,0 +1,23 @@
+<div class="salesperson-details" data-bind="visible:moduleEnabled">
+
+	<table>
+		<thead><b>Details of the Person</b>
+		</thead>
+		<tr>
+			<td>ID</td>
+			<td>: <strong data-bind="text: pId"></strong></td>
+		</tr>
+		<tr>
+			<td>First name</td>
+			<td>: <strong data-bind="text: firstName"></strong></td>
+		</tr>
+		<tr>
+			<td>Last name</td>
+			<td>: <strong data-bind="text: lastName"></strong></td>
+		</tr>
+		<tr>
+			<td>Average Sales</td>
+			<td>: <strong data-bind="text: averageSales"></strong></td>
+		</tr>
+	</table>
+</div>

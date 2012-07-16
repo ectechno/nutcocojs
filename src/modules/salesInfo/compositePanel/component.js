@@ -1,5 +1,4 @@
-define([ '_core','text!./view.html', 'text!./chartViewPanel/view.html',
-		'text!./treeViewPanel/view.html' ], function(Core, parentViewText, chartViewText, treeViewText) {
+define([ '_core','text!./view.html'], function(Core, parentViewText) {
 	return function(vm) {
 
 		var panel = new Core.Panel(vm, parentViewText);
