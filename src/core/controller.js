@@ -58,7 +58,7 @@
 		});
 
 		return {
-			addHandles : function(handles) {
+			addRoutes : function(handles) {
 				for (path in handles) {
 					var HandlerClass = handles[path];
 					var handlerObj = new Wrapper(new HandlerClass(context));

@@ -1,12 +1,11 @@
-define([ '_core', './viewmodel', 'text!./view.html'],function( Core, ViewModel, viewText) {
+define([ '_core', './component'],function( Core, Component) {
 	return function(moduleContext) {
 
 		var panel = null;
 		return {
 			
 			activate: function(vals) {
-				var vm = new ViewModel("detail : " + vals.id);
-				panel = new Core.Panel(vm, viewText);
+				panel = new Component(moduleContext);
 			},
 			
 			deactivate: function() {
