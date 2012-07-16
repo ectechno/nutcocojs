@@ -1,4 +1,4 @@
-define([], function() {
+define(['./chartBinding'], function(chartBinding) {
 
 	return function(moduleContext) {
 		var self = this;
@@ -10,39 +10,6 @@ define([], function() {
 					function(result) {
 						self.salesInfo(result);
 					});
-
-			ko.bindingHandlers.flotChart = {
-
-				init : function(element, valueAccessor) {
-
-				},
-
-				update : function(element, valueAccessor) {
-					var flotData = valueAccessor();
-
-					var options = {
-						lines : {
-							show : true
-						},
-						points : {
-							show : true
-						},
-						xaxis : {
-							ticks : flotData.tickLabels
-						}
-					};
-
-					var data = [ {
-						"label" : self.selectedDept() + " -  "
-								+ self.selectedYear(),
-						"data" : flotData.dataItems
-					} ];
-
-					self.plot = $.plot(element, data, options);
-
-				}
-			};
-
 		}
 
 		this.selectedYear = ko.observable();
@@ -56,9 +23,12 @@ define([], function() {
 				return [ key, item.sales ];
 			});
 
+			var label =  self.selectedDept() + " -  "+ self.selectedYear();
+			
 			return {
 				"tickLabels" : tickLabels,
-				"dataItems" : dataItems
+				"dataItems" : dataItems,
+				"label"	: label
 			};
 		});
 		this.totalSales = ko.computed(function() {
@@ -72,7 +42,7 @@ define([], function() {
 		this.tableEnabled = ko.observable(false);
 		this.init();
 
-		self.drawTree = function() {
+		this.drawTree = function() {
 
 			$("#treeView").jstree({
 				"themes" : {
