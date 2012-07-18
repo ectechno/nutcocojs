@@ -6,5 +6,7 @@ define([ '_core', './routes', './settings' ], function(Core, routes, settings) {
 		moduleContext.getController().addRoutes(routes);
 
 		moduleContext.activate();
+		
+		
 	};
 });

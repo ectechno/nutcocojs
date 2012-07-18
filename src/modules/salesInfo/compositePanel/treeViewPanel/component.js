@@ -7,6 +7,6 @@ define([ '_core', 'text!./view.html'],function( Core, viewText) {
 			getElementId : function(){
 				return panel.getElementId();
 			}
-		}	
+		};	
 	};
 });

@@ -6,7 +6,7 @@
  */
 define(function(require) {
 
-	var PanelHandler = require('./compositePanel/handler');
+	var PanelHandler = require('./compositePanel/route-handler');
 	// now return a structure containing the route path and handler instance
 	return {
 		'salesinfo/' : PanelHandler

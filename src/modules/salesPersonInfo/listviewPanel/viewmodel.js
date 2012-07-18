@@ -3,12 +3,8 @@ define([], function() {
 	return function(moduleContext) {
 		var self = this;
 		
-		this.init = function(){
-			$.getJSON(moduleContext.getSettings().items().urls.salesPersonInfo, function (result) {
-				self.salesPersons(result);
-            });
-		};
-			
+		self.myvar = ko.observable("");
+		
 		this.salesPersons = ko.observableArray();
 		this.personClicked = function(person){
 			moduleContext.getController().goTo("salespersons/"+person.id);
@@ -16,6 +12,16 @@ define([], function() {
 		this.moduleEnabled = ko.observable(true);
 		
 		
-		this.init();	//call the initialization method.. is this the best way?
+		//self executable as a constructor function
+		(function(){
+			
+			self.myvar("hello");
+			
+			$.getJSON(moduleContext.getSettings().items().urls.salesPersonInfo, function (result) {
+				self.salesPersons(result);
+				
+            });
+		})();
+		
 	};
 });

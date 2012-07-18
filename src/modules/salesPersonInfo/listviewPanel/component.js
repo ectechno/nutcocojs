@@ -4,6 +4,7 @@ define(['_core', 'text!./view.html', './viewmodel' ], function(Core, viewText, V
 		var vm = new ViewModel(moduleContext);
 		var panel = new Core.Panel(vm, viewText);
 
+		
 		return {
 			getElementId : function() {
 				return panel.getElementId();

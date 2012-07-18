@@ -1,6 +1,7 @@
 ﻿define([], function() {
 
-	return function(viewModel, viewTemplate) {
+	return function(viewModel, viewTemplate, i18n) {
+		console.log(i18n);
 
 		function createView(viewText, parentElement, containerType) {
 			//set defaults

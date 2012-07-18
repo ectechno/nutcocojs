@@ -9,10 +9,9 @@ define([ '_core','./component','./viewmodel','./chartViewPanel/component','./tre
 				
 				var vm = new ViewModel(moduleContext);
 				component = new SplitterComponent(vm);
-				var components = new Array(new ChartViewComponent(vm),new TreeViewComponent(vm));
-				for(key in components){
-					component.addChild(components[key].getElementId());
-				}
+				
+				component.addChild(new ChartViewComponent(vm).getElementId());
+				component.addChild(new TreeViewComponent(vm).getElementId());
 			},
 			
 			deactivate: function() {
