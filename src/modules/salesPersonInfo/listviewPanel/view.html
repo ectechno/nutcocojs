@@ -1,12 +1,23 @@
-<div id="salesperson-list" data-bind="visible:moduleEnabled">
+<div id="salesperson-list">
+
 	<div class="list-title">
 		<h3>Sales Person List</h3>
 	</div>
-	<div class="list-area">
-		<ul id="person-list" data-bind="foreach:salesPersons">
-			<li class="person"><a href="#"
-				data-bind="text: firstName, click:$root.personClicked"></a></li>
-		</ul>
-	</div>
-	<div id="mydiv" data-bind="text:myvar"></div>
+
+	<table class = "list-area">
+		 <thead><tr>
+        <th>Id</th><th>Firstname</th><th>LastName</th><th></th>
+    </tr></thead>
+
+		 <tbody data-bind="foreach:salesPersons">
+        <tr>
+            <td class="person"><a href="#" data-bind="text:id, click:$root.personClicked"></a></td>
+            <td data-bind="text: firstName"></td>
+            <td data-bind="text: lastName"></td>
+        </tr>    
+    </tbody>
+
+	</table>
+	
+
 </div>
