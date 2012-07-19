@@ -511,29 +511,30 @@ div.error {
 	
 }
 
-#salesperson-list ul {
+#salesperson-list table {
 	padding: 8px;
-	margin: 0px;
+	margin: auto;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 15px;
 	color: #FFF;
-	list-style: none;
 	background: #333333;
+	width:100%;
 }
 
-#salesperson-list ul li {
+#salesperson-list table tr td{
 	background: #333333;
 	line-height: 28px;
 	border-bottom: 1px solid #000;
+	color: #FFF;
 }
 
-#salesperson-list ul li a {
+#salesperson-list table tr a {
 	text-decoration: none;
 	color: #FFF;
 	display: block;
 }
 
-#salesperson-list ul li a:hover {
+#salesperson-list table tr a:hover {
 	background: #818181;
 }
 

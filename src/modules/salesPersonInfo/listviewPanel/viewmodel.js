@@ -9,8 +9,6 @@ define([], function() {
 		this.personClicked = function(person){
 			moduleContext.getController().goTo("salespersons/"+person.id);
 		};
-		this.moduleEnabled = ko.observable(true);
-		
 		
 		//self executable as a constructor function
 		(function(){
