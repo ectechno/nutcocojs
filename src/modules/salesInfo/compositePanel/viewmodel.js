@@ -48,7 +48,9 @@ define(['./chartBinding'], function(chartBinding) {
 				"themes" : {
 					"theme" : "apple"
 				},
-				"plugins" : [ "themes", "html_data" ]
+				"plugins" : [ "themes", "html_data" ],
+				"core" : { "initially_open" : [ "salesDept" ] }
+				
 			});
 		}
 
