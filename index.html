@@ -1,54 +1,119 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<title>NutCocoJS Reference Architecture</title>
-	
-    <!--meta http-equiv="cache-control" content="no-cache" /-->
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    
-    <link href="./themes/white/common.css" type="text/css" rel="stylesheet"  />
-	<script src="./libs/jquery/jquery-min.js" type="text/javascript" charset="utf-8" ></script>
-	<script src="./libs/validator/jquery.validate.min.js" type="text/javascript" charset="utf-8" ></script>
-	<script src="./libs/knockout/knockout-latest.js" type="text/javascript" charset="utf-8" ></script>
-	<script src="./libs/underscore/underscore-amd-min.js" type="text/javascript" charset="utf-8" ></script>
-	<script src="./libs/modernizr/modernizr.min.js" type="text/javascript" charset="utf-8" ></script>
-	<script src="./libs/signals/signals.min.js" type="text/javascript" charset="utf-8" ></script>
-	<script src="./libs/crossroads/crossroads.min.js" type="text/javascript" charset="utf-8" ></script>
-	<script src="./libs/hasher/hasher.min.js" type="text/javascript" charset="utf-8" ></script>
-	<script src="./libs/pubsub/pubsub-20120708.js" type="text/javascript" charset="utf-8" ></script>
-	<script src="./libs/jsTree/jquery.jstree.js" type="text/javascript" charset="utf-8" ></script>
-	<script src="./libs/flot/jquery.flot.min.js" type="text/javascript" charset="utf-8" ></script>
-	<script src="./libs/debug/ba-debug.min.js" type="text/javascript" charset="utf-8" ></script>
+	<head>
+		<title>NutCocoJS Reference Architecture</title>
 
+		<!--meta http-equiv="cache-control" content="no-cache" /-->
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 
-</head>
-<body>
-    <div class="bodyWrapper">
-        <div class="header">
-            <table cellpadding="0" cellspacing="0">
-                <colgroup>
-                    <col width="153" />
-                    <col width="827" />
-                </colgroup>
-                <tr>
-                    <td class="logo" valign="top">
-                        <img src="" /><br>
-                        <span class="smallBoldText">John Smith</span><br>
-                        Unit name goes here
-                    </td>
-                    <td valign="top"><header id="appheader"></header>
-                        <div class="toolbar">
-                            <section id="toolBar"></section>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div class="content">
-            <section id="appcontent"></section>
-        </div>
-        <footer id="appfooter"></footer>
-    </div>
-    <script type="text/javascript" data-main="src/main" src="./libs/require/require.js"></script>
-</body>
+		<link href="./themes/white/common.css" type="text/css" rel="stylesheet"  />
+		<script src="./libs/jquery/jquery-min.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="./libs/validator/jquery.validate.min.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="./libs/knockout/knockout-latest.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="./libs/underscore/underscore-amd-min.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="./libs/modernizr/modernizr.min.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="./libs/signals/signals.min.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="./libs/crossroads/crossroads.min.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="./libs/hasher/hasher.min.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="./libs/pubsub/pubsub-20120708.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="./libs/jsTree/jquery.jstree.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="./libs/flot/jquery.flot.min.js" type="text/javascript" charset="utf-8" ></script>
+		<script src="./libs/debug/ba-debug.min.js" type="text/javascript" charset="utf-8" ></script>
+
+		<script>
+			$('document').ready(function() {
+				$('.menu').fixedMenu();
+			});
+
+			/* @version 2.1 fixedMenu
+			 * @author Lucas Forchino
+			 * @webSite: http://www.jqueryload.com
+			 * jquery top fixed menu
+			 */
+			(function($) {
+				$.fn.fixedMenu = function() {
+					return this.each(function() {
+						var linkClicked = false;
+						var menu = $(this);
+						$('body').bind('click', function() {
+
+							if (menu.find('.active').size() > 0 && !linkClicked) {
+								menu.find('.active').removeClass('active');
+							} else {
+								linkClicked = false;
+							}
+						});
+
+						menu.find('ul li > a').bind('click', function() {
+							linkClicked = true;
+							if ($(this).parent().hasClass('active')) {
+								$(this).parent().removeClass('active');
+							} else {
+								$(this).parent().parent().find('.active').removeClass('active');
+								$(this).parent().addClass('active');
+							}
+						})
+					});
+				}
+			})(jQuery);
+		</script>
+	</head>
+	<body>
+		<div class="bodyWrapper">
+			<div class="header">
+				<table cellpadding="0" cellspacing="0">
+					<colgroup>
+						<col width="153" />
+						<col width="827" />
+					</colgroup>
+					<tr>
+						<td class="logo" valign="top"><img src="" />
+						<br>
+						<span class="smallBoldText">John Smith</span>
+						<br>
+						Unit name goes here </td>
+						<td valign="top"><header id="appheader"></header>
+						<div class="toolbar">
+							<section id="toolBar"></section>
+						</div></td>
+					</tr>
+				</table>
+			</div>
+			<div class="content">
+				<!--Main Menu-->
+				<div class="menu">
+
+					<ul>
+						<li>
+							<a href="#">Home</a>
+						</li>
+						<li>
+							<a href="#salesinfo">Sales Info</a>
+						</li>
+						<li>
+							<a href="#salespersons">Sales Persons</a>
+							<ul>
+								<li>
+									<a href="#/salespersons/emp01">Person 1</a>
+								</li>
+								<li>
+									<a href="#/salespersons/emp02">Person 2</a>
+								</li>
+								<li>
+									<a href="#/salespersons/emp03">Person 3</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">Departments</a>
+						</li>
+					</ul>
+				</div>
+
+				<section id="appcontent"></section>
+			</div>
+			<footer id="appfooter"></footer>
+		</div>
+		<script type="text/javascript" data-main="src/main" src="./libs/require/require.js"></script>
+	</body>
 </html>
