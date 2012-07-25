@@ -14,9 +14,12 @@
 		},
 
 		error : function(msg, error, silent) {
-			if (window['console'] != 'undefined') {
-				debug.error(msg, error);
+			if (silent === 'false') {
+				if (window['console'] != 'undefined') {
+					debug.error(msg, error);
+				}
 			}
+
 		},
 	};
 
