@@ -1,0 +1,28 @@
+CACHE MANIFEST
+# 2012-07-19:v1.9
+# Explicitly cached 'master entries'.
+
+CACHE:
+themes/white/back.gif
+themes/white/common.css
+#index.html
+#libraries
+libs/knockout/knockout-latest.js
+libs/validator/jquery.validate.min.js
+libs/underscore/underscore-amd-min.js
+libs/modernizr/modernizr.min.js
+libs/signals/signals.min.js
+libs/crossroads/crossroads.min.js
+libs/hasher/hasher.min.js
+libs/pubsub/pubsub-20120708.js
+libs/jsTree/jquery.jstree.js
+libs/flot/jquery.flot.min.js
+libs/debug/ba-debug.min.js
+libs/require/require.js
+#libraries
+
+# Resources that require the user to be online.
+NETWORK:
+*
+
+FALLBACK:

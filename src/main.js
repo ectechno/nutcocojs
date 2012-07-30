@@ -1,6 +1,7 @@
 ﻿'use strict'; //avoid accidental global variable declarations
 
 require.config({
+	baseUrl : './src',
 	paths : {
 		text : '../libs/require/text',
 		order : '../libs/require/order',
@@ -8,6 +9,7 @@ require.config({
 
 		_core : './core/_core',
 		_util : './util/_util',
+
 	}
 });
 
@@ -16,17 +18,19 @@ require.config({
  * main HTML file.
  */
 
-require(['_core', './settings', './modules/modules'], function(Core, settings,  modules) {
-	//lets setup the global context 
-	var globalContext = new Core.Context(); // create the global context object
-	globalContext.getSettings().load(settings); // add settings to the global object
-	
+require(['order!_core', 'order!./settings', 'order!./modules/modules'], function(Core, settings, modules) {
+	//lets setup the global context
+	var globalContext = new Core.Context();
+	// create the global context object
+	globalContext.getSettings().load(settings);
+	// add settings to the global object
+
 	//load all the modules
 	var moduleLoader = new Core.Loader(globalContext);
-	moduleLoader.load(modules); // initialize the apploader and pass the global object
+	moduleLoader.load(modules);
+	// initialize the apploader and pass the global object
 
 	//activate the global context once everything is setup
 	globalContext.activate();
-	
-	
+
 });

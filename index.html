@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" manifest="nutcoco.appcache">
 	<head>
 		<title>NutCocoJS Reference Architecture</title>
 
@@ -8,18 +8,7 @@
 
 		<link href="./themes/white/common.css" type="text/css" rel="stylesheet"  />
 		<script src="./libs/jquery/jquery-min.js" type="text/javascript" charset="utf-8" ></script>
-		<script src="./libs/validator/jquery.validate.min.js" type="text/javascript" charset="utf-8" ></script>
-		<script src="./libs/knockout/knockout-latest.js" type="text/javascript" charset="utf-8" ></script>
-		<script src="./libs/underscore/underscore-amd-min.js" type="text/javascript" charset="utf-8" ></script>
-		<script src="./libs/modernizr/modernizr.min.js" type="text/javascript" charset="utf-8" ></script>
-		<script src="./libs/signals/signals.min.js" type="text/javascript" charset="utf-8" ></script>
-		<script src="./libs/crossroads/crossroads.min.js" type="text/javascript" charset="utf-8" ></script>
-		<script src="./libs/hasher/hasher.min.js" type="text/javascript" charset="utf-8" ></script>
-		<script src="./libs/pubsub/pubsub-20120708.js" type="text/javascript" charset="utf-8" ></script>
-		<script src="./libs/jsTree/jquery.jstree.js" type="text/javascript" charset="utf-8" ></script>
-		<script src="./libs/flot/jquery.flot.min.js" type="text/javascript" charset="utf-8" ></script>
-		<script src="./libs/debug/ba-debug.min.js" type="text/javascript" charset="utf-8" ></script>
-
+		<script src="./libs/lib-loader.js" type="text/javascript" charset="UTF-8"></script>
 		<script>
 			$('document').ready(function() {
 				$('.menu').fixedMenu();
@@ -114,6 +103,5 @@
 			</div>
 			<footer id="appfooter"></footer>
 		</div>
-		<script type="text/javascript" data-main="src/main" src="./libs/require/require.js"></script>
 	</body>
 </html>
