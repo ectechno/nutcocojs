@@ -1,4 +1,4 @@
-define([], function() {
+define(["i18n!./nls/captions"], function(captions) {
 
 	return function(moduleContext) {
 		var self = this;
@@ -9,7 +9,7 @@ define([], function() {
 		this.personClicked = function(person){
 			moduleContext.getController().goTo("salespersons/"+person.id);
 		};
-		
+		console.log("Language :"+navigator.language+" Test Localization "+captions.firstname);
 		//self executable as a constructor function
 		(function(){
 			
