@@ -7,3 +7,5 @@ To optimize the project,
 2.Set the path of js.jar, compiler.jar and boilerplatejs.build.js in Boilerplate_optimizer.bat (all files are included in the optimizer directory)
 
 3.Double click on Boilerplate_optimizer.bat to run
+
+The optimized project will be created in the same folder and will be named nutcoco-initdeploy-build as specified in the build file
