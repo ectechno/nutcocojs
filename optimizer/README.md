@@ -8,4 +8,4 @@ To optimize the project,
 
 3.Double click on Boilerplate_optimizer.bat to run
 
-The optimized project will be created in the same folder and will be named nutcoco-initdeploy-build as specified in the build file
+The optimized project will be created in the same folder as the original project and will be named nutcoco-initdeploy-build as specified in the build file
