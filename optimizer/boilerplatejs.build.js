@@ -10,5 +10,6 @@
 		_util : "util/_util",
 		text : "../libs/require/text",
 		i18n : "../libs/require/i18n",
+		order : "../libs/require/order"
 	}
 })
